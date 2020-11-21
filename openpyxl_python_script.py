@@ -10,10 +10,10 @@ workbook = openpyxl.load_workbook(filename='excel_file.xlsx')
 worksheet = workbook.active
 MAX_ROW = worksheet.max_row
 
-url = 'http://localhost:8000'
-db = 'inventory_db'
-username = 'admin'
-password = 'admin'
+url = ''
+db = ''
+username = ''
+password = ''
 
 common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
 uid = common.authenticate(db, username, password, {})
@@ -21,11 +21,11 @@ models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 
 def db_connection():
     
-    USER = 'ubuntu'
-    PASSWORD = '1234'
-    HOST = '127.0.0.1'
+    USER = ''
+    PASSWORD = ''
+    HOST = ''
     PORT = ''
-    DATABASE = 'inventory_db'
+    DATABASE = ''
     connection = None
 
     try:
