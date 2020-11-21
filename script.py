@@ -65,8 +65,7 @@ for row in range(2, MAX_ROW):
     description = worksheet.cell(row=row, column=2).value
     part_number = worksheet.cell(row=row, column=3).value
     commodity_group_id = get_commodity_group_id(worksheet.cell(row=row, column=4).value)
-    encoded_img = encode_image(worksheet.cell(row=row, column=5).value)
-    
+    encoded_img = encode_image(worksheet.cell(row=row, column=5).value)    
     id = models.execute_kw(db, uid, password, 'product.template', 'create', [{
             'default_code': item,
             'name': description,
