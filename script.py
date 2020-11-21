@@ -4,13 +4,15 @@ import base64
 from datetime import datetime
 import xmlrpc.client
 import psycopg2
+import time
+from tqdm import tqdm
 
 workbook = openpyxl.load_workbook(filename='excel_file.xlsx')
 worksheet = workbook.active
 MAX_ROW = 100 #worksheet.max_row
 
 url = 'http://localhost:8000'
-db = 'inventory_test_db'
+db = 'inventory_db'
 username = 'admin'
 password = 'admin'
 
@@ -24,7 +26,7 @@ def db_connection():
     PASSWORD = '1234'
     HOST = '127.0.0.1'
     PORT = ''
-    DATABASE = 'inventory_test_db'
+    DATABASE = 'inventory_db'
     connection = None
 
     try:
@@ -58,9 +60,9 @@ def encode_image(image_value):
 
 start_reading_time = datetime.now()
 
-print('================START=========================')
+print('\t\t\t\t\t\t ================SCRIPT STARTED=========================')
 
-for row in range(2, MAX_ROW):
+for row in tqdm(range(2, MAX_ROW)):
     item = worksheet.cell(row=row, column=1).value
     description = worksheet.cell(row=row, column=2).value
     part_number = worksheet.cell(row=row, column=3).value
@@ -73,8 +75,8 @@ for row in range(2, MAX_ROW):
             'image_1920': encoded_img,
         }])
             
-print('===================END=======================')
-print(datetime.now() - start_reading_time)
+print('\t\t\t\t\t\t ===================SCRIPT FINISHED=======================                                        ')
+print('\t\t\t\t\t\t\t\t\t\t\t\t TOTAL ELAPSED TIME: ', datetime.now() - start_reading_time)
 
 
 
