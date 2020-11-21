@@ -14,7 +14,7 @@ The ** Python-ODOO Script ** is a simple Script which is written in Python progr
 - You have to have running odoo project with inventory module
 ### Running App
 - First off all you have to install Git version controll in your OS
-- The clone the Source code from this repo: 
+- Then clone the Source code from this repo: 
 ```
     git clone https://github.com/Hashem-Poya/python-script.git
 ```
